@@ -34,6 +34,28 @@ Note: Replace `password_sa.py` with the actual filename if you have renamed the 
 - `password_sa.py`: The main script file.
 - `passwords.txt`: A text file containing the list of passwords to be tested.
 
+## Hash example
+
+```
+FULL HASH:     0x010064894AA66B8C22651B3089DDA5A0D48A5E586C0F5DE6A7A1
+
+Version: 0100 (SHA-1)
+
+SALT: 64894AA6
+
+Hash (20 bytes): 6B8C22651B3089DDA5A0D48A5E586C0F5DE6A7A1
+```
+
+## SQL Query to extract the Sa Hash
+
+```SQL
+SELECT name, CONVERT(VARCHAR(MAX), password_hash, 1) AS password_hash
+FROM sys.sql_logins
+WHERE name = 'sa';
+```
+
+
+
 ## Troubleshooting
 
 - If you encounter any issues, make sure you have the necessary permissions to access the files and that the file paths are correct.
